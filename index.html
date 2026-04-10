@@ -1,260 +1,588 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tà Đùng</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Tà Đùng | The Untamed Gem of Central Highlands</title>
+    <!-- Google Fonts cho cảm giác sang trọng: Serif cho tiêu đề, Sans cho chữ đọc -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 cho các icon nhỏ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+        body {
+            background-color: #FDF9F3;
+            color: #2C2A29;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
+        h1, h2, h3, h4, .logo, .nav-links a {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
 
-body{
-    font-family:'Montserrat',sans-serif;
-    background:#FDF9F3;
-    color:#2C2A29;
-    scroll-behavior:smooth;
-}
+        h1 {
+            font-size: clamp(3rem, 10vw, 6rem);
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            color: #FFFFFF;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
 
-h1,h2,h3{font-family:'Cormorant Garamond',serif}
+        h2 {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 60px;
+            height: 1px;
+            background-color: #C4A27A;
+        }
+        .center h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
 
-.container{max-width:1200px;margin:auto;padding:0 20px}
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
 
-/* NAVBAR */
-.navbar{
-    position:fixed;
-    width:100%;
-    padding:20px;
-    z-index:1000;
-    transition:.3s;
-}
-.navbar.scrolled{
-    background:#fff;
-    box-shadow:0 2px 10px rgba(0,0,0,0.05);
-}
-.nav-links{
-    display:flex;
-    gap:20px;
-    justify-content:center;
-}
-.nav-links a{
-    text-decoration:none;
-    color:white;
-    font-weight:500;
-}
-.navbar.scrolled a{color:#000}
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 28px 0;
+            z-index: 1000;
+            transition: all 0.4s ease;
+            background-color: transparent;
+        }
+        .navbar.scrolled {
+            background-color: rgba(253, 249, 243, 0.92);
+            backdrop-filter: blur(8px);
+            padding: 18px 0;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.03);
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: #FFFFFF;
+            transition: color 0.3s;
+        }
+        .navbar.scrolled .logo {
+            color: #2C2A29;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2.8rem;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #FFFFFF;
+            transition: 0.2s;
+            letter-spacing: 1px;
+        }
+        .navbar.scrolled .nav-links a {
+            color: #2C2A29;
+        }
+        .nav-links a:hover {
+            opacity: 0.7;
+        }
 
-/* HERO */
-.hero{
-    height:100vh;
-    background:
-    linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.3)),
-    url('https://vuonquocgiatadung.vn/images/hinhanh//034834-t----ng-2.jpg') center/cover;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    color:white;
-}
-.hero h1{font-size:5rem}
+        /* Hero Section - Ảnh 1 làm nền chính */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(0deg, rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url('https://scontent.fsgn5-10.fna.fbcdn.net/v/t1.6435-9/89915137_3668990836475717_4820032330745774080_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=13d280&_nc_ohc=IZTA1J9DjWoQ7kNvwGUMYrD&_nc_oc=Adpa8JwlhIl0uZCx5VuX1UFjCy5AC8Lz_XNS7w1sxKYXoJEkAEbWD86jPFZ2ARLQiVY&_nc_zt=23&_nc_ht=scontent.fsgn5-10.fna&_nc_gid=cy_2FD9g4vmtT-Ahmz5hxA&_nc_ss=7a30f&oh=00_AfwDeLwmP8Uhdo9mj7BFP8_Sp1D6tRvh8b9shPP6AJvy7A&oe=69E8A0D9') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        .hero .subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            letter-spacing: 4px;
+            color: #FDF9F3;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .btn {
+            display: inline-block;
+            padding: 14px 42px;
+            border: 1px solid rgba(255,255,255,0.8);
+            color: white;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            transition: 0.3s;
+            background: transparent;
+            backdrop-filter: blur(4px);
+        }
+        .btn:hover {
+            background: white;
+            color: #2C2A29;
+            border-color: white;
+        }
 
-/* SECTION */
-.section{padding:100px 0}
+        .section {
+            padding: 100px 0;
+        }
+        .section.dark {
+            background-color: #F4EFE8;
+        }
+        .center {
+            text-align: center;
+        }
 
-/* ABOUT */
-.about{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:50px;
-    align-items:center;
-}
-.about img{
-    width:100%;
-    height:450px;
-    object-fit:cover;
-}
+        /* About layout */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #3E3A37;
+        }
+        .about-image {
+            border-radius: 4px;
+            overflow: hidden;
+            height: 500px;
+            box-shadow: 0 25px 40px -20px rgba(0,0,0,0.2);
+        }
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .about-image:hover img {
+            transform: scale(1.02);
+        }
 
-/* EXPERIENCE */
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:30px;
-}
-.card{
-    background:white;
-    padding:30px;
-    text-align:center;
-    transition:.3s;
-}
-.card:hover{
-    transform:translateY(-5px);
-}
+        /* Card Grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        .exp-card {
+            background: white;
+            padding: 40px 28px;
+            text-align: center;
+            transition: all 0.25s;
+            border-radius: 2px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.02);
+        }
+        .exp-card i {
+            font-size: 2.6rem;
+            color: #C4A27A;
+            margin-bottom: 20px;
+        }
+        .exp-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+        .exp-card p {
+            font-size: 0.95rem;
+            color: #5a5a5a;
+        }
+        .exp-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+        }
 
-/* GALLERY */
-.gallery{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-}
-.gallery img{
-    width:100%;
-    height:300px;
-    object-fit:cover;
-    transition:.4s;
-    cursor:pointer;
-}
-.gallery img:hover{transform:scale(1.05)}
+        /* Gallery - Lưới ảnh đẹp với 11 ảnh */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 50px;
+        }
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 2px;
+            aspect-ratio: 4 / 5;
+            cursor: pointer;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
 
-/* LIGHTBOX */
-.lightbox{
-    position:fixed;
-    top:0;left:0;
-    width:100%;height:100%;
-    background:rgba(0,0,0,0.9);
-    display:none;
-    justify-content:center;
-    align-items:center;
-}
-.lightbox img{
-    max-width:90%;
-    max-height:90%;
-}
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+            text-align: center;
+        }
+        .info-card {
+            background: rgba(255,255,240,0.5);
+            padding: 30px 20px;
+            border-bottom: 1px solid #DCCFBF;
+        }
+        .info-card i {
+            font-size: 2rem;
+            color: #A67B5A;
+            margin-bottom: 15px;
+        }
+        .info-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
 
-/* INFO */
-.info{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:20px;
-    text-align:center;
-}
+        /* Team */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .team-card {
+            background: white;
+            padding: 35px 20px;
+            text-align: center;
+            border-radius: 2px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+        }
+        .team-card i {
+            font-size: 2rem;
+            color: #C4A27A;
+            margin-bottom: 15px;
+        }
+        .team-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+        .team-card p {
+            color: #5a5a5a;
+            line-height: 1.5;
+        }
 
-/* TEAM */
-.team{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:20px;
-}
+        footer {
+            background-color: #E8E0D5;
+            padding: 48px 20px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #4a4a4a;
+            letter-spacing: 0.5px;
+        }
+        footer p:first-child {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
 
-/* ANIMATION */
-.fade{
-    opacity:0;
-    transform:translateY(20px);
-    transition:.6s;
-}
-.fade.show{
-    opacity:1;
-    transform:none;
-}
+        /* Lightbox cho ảnh khi click */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        .lightbox.active {
+            display: flex;
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            font-family: monospace;
+        }
 
-/* MOBILE */
-@media(max-width:768px){
-    .about{grid-template-columns:1fr}
-    .hero h1{font-size:3rem}
-}
-</style>
+        @media (max-width: 900px) {
+            .container {
+                padding: 0 24px;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .info-grid, .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .nav-links {
+                gap: 1.4rem;
+            }
+        }
+        @media (max-width: 600px) {
+            .navbar .nav-links a {
+                font-size: 0.8rem;
+            }
+            .logo {
+                font-size: 1.3rem;
+            }
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+            .info-grid, .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
-<!-- NAV -->
-<div class="navbar" id="nav">
-    <div class="nav-links">
-        <a href="#about">Giới thiệu</a>
-        <a href="#exp">Trải nghiệm</a>
-        <a href="#gallery">Gallery</a>
+<header class="navbar" id="navbar">
+    <div class="nav-container">
+        <div class="logo">TÀ ĐÙNG</div>
+        <div class="nav-links">
+            <a href="#about">Giới thiệu</a>
+            <a href="#experience">Trải nghiệm</a>
+            <a href="#gallery">Thư viện</a>
+            <a href="#travel">Hành trình</a>
+            <a href="#team">Dự án</a>
+        </div>
     </div>
-</div>
+</header>
 
-<!-- HERO -->
 <section class="hero">
-    <div>
+    <div class="hero-content">
+        <p class="subtitle">The Untamed Gem of Central Highlands</p>
         <h1>Tà Đùng</h1>
-        <p>The Untamed Gem</p>
+        <a href="#about" class="btn">KHÁM PHÁ</a>
     </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about" class="section fade">
-<div class="container">
-<div class="about">
-<div>
-<h2>Vịnh Hạ Long Tây Nguyên</h2>
-<p>Tà Đùng với hàng chục đảo nổi tạo nên khung cảnh độc đáo.</p>
-</div>
-<img src="https://vuonquocgiatadung.vn/images/hinhanh//140716-td4.jpg" loading="lazy">
-</div>
-</div>
+<section id="about" class="section">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-text">
+                <h2>Vịnh Hạ Long giữa đại ngàn</h2>
+                <p>Nằm sâu trong lòng tỉnh Đắk Nông, hồ Tà Đùng như một bức tranh thủy mặc khổng lồ với hơn 40 hòn đảo lớn nhỏ nhấp nhô trên mặt nước xanh ngắt. Được ví von là "Vịnh Hạ Long của Tây Nguyên", nơi đây không chỉ sở hữu vẻ đẹp hùng vĩ của núi rừng mà còn mang sự tĩnh lặng đến lạ thường.</p>
+                <p>Những dãy núi phủ đầy mây mờ ảo lúc bình minh, những cơn gió lành lạnh từ lòng hồ thổi lên, tất cả tạo nên một không gian nghỉ dưỡng tách biệt hoàn toàn với nhịp sống xô bồ. Đây chính là nơi dành cho những tâm hồn tìm kiếm sự yên tĩnh, thanh lọc và kết nối với thiên nhiên nguyên sơ.</p>
+                <p style="font-style: italic; border-left: 2px solid #C4A27A; padding-left: 18px;">"Không chỉ là điểm đến, Tà Đùng là một cảm xúc giữa đất trời Tây Nguyên."</p>
+            </div>
+            <div class="about-image">
+                <img src="https://namthientravel.com.vn/wp-content/uploads/2025/07/Mua-Dep-Nhat-Ho-Ta-Dung.webp" alt="Hồ Tà Đùng - cảnh đẹp hùng vĩ">
+            </div>
+        </div>
+    </div>
 </section>
 
-<!-- EXPERIENCE -->
-<section id="exp" class="section fade">
-<div class="container">
-<h2 style="text-align:center;margin-bottom:40px">Trải nghiệm</h2>
-
-<div class="cards">
-<div class="card">Du thuyền</div>
-<div class="card">Cắm trại</div>
-<div class="card">Săn mây</div>
-<div class="card">Văn hoá</div>
-</div>
-
-</div>
+<section id="experience" class="section dark">
+    <div class="container">
+        <div class="center">
+            <h2>Những trải nghiệm tinh hoa</h2>
+            <p style="max-width: 700px; margin: 20px auto 0;">Nơi mỗi khoảnh khắc đều được nâng niu như một tác phẩm nghệ thuật.</p>
+        </div>
+        <div class="card-grid">
+            <div class="exp-card">
+                <i class="fas fa-ship"></i>
+                <h3>Du thuyền trên hồ</h3>
+                <p>Lênh đênh giữa hàng chục hòn đảo, ngắm nhìn hoàng hôn buông xuống mặt nước phẳng lặng như gương.</p>
+            </div>
+            <div class="exp-card">
+                <i class="fas fa-campground"></i>
+                <h3>Cắm trại tiên phong</h3>
+                <p>Thức giấc giữa làn sương sớm, bên bờ hồ tĩnh mịch, lắng nghe nhịp sống hoang sơ của núi rừng.</p>
+            </div>
+            <div class="exp-card">
+                <i class="fas fa-camera-retro"></i>
+                <h3>Nhiếp ảnh săn mây</h3>
+                <p>Những khung hình "triệu view" với biển mây trôi bồng bềnh trên đỉnh núi, đẹp như chốn bồng lai.</p>
+            </div>
+            <div class="exp-card">
+                <i class="fas fa-hands-helping"></i>
+                <h3>Văn hóa M'Nông</h3>
+                <p>Giao lưu cùng người dân bản địa, thưởng thức rượu cần và tìm hiểu nhà dài truyền thống.</p>
+            </div>
+        </div>
+    </div>
 </section>
 
-<!-- GALLERY -->
-<section id="gallery" class="section fade">
-<div class="container">
-<h2 style="text-align:center;margin-bottom:40px">Gallery</h2>
-
-<div class="gallery">
-<img src="https://vuonquocgiatadung.vn/images/hinhanh//034802-t----ng-1.jpg" loading="lazy">
-<img src="https://vuonquocgiatadung.vn/images/hinhanh//135710-td3.jpg" loading="lazy">
-<img src="https://www.homepaylater.vn/static/1988d4efc5690b700b15a943344ef826/89314/2_ve_dep_hut_hon_cua_ho_ta_dung_vinh_ha_long_tren_can_fe3f50a286.webp" loading="lazy">
-<img src="https://www.homepaylater.vn/static/500a54d49f3950d78563c8b0d1318619/89314/4_ta_dung_con_co_ten_goi_la_song_ba_ngan_846e010fa8.webp" loading="lazy">
-<img src="https://vuonquocgiatadung.vn/images/hinhanh//034834-t----ng-2.jpg" loading="lazy">
-<img src="https://vuonquocgiatadung.vn/images/hinhanh//140716-td4.jpg" loading="lazy">
-</div>
-
-</div>
+<section id="gallery" class="section">
+    <div class="container">
+        <div class="center">
+            <h2>Thư viện hình ảnh</h2>
+            <p style="margin-top: 12px;">Hành trình khám phá vẻ đẹp Tà Đùng qua từng khoảnh khắc</p>
+        </div>
+        <div class="gallery">
+            <div class="gallery-item"><img src="https://dulich.daknong.gov.vn/DataFiles/2024/01/Places/20240119-105229-dz7bWIKi.webp" alt="Tà Đùng 1"></div>
+            <div class="gallery-item"><img src="https://dulich.daknong.gov.vn/DataFiles/2024/01/Places/20240119-105444-nCxHeUTt.webp" alt="Tà Đùng 2"></div>
+            <div class="gallery-item"><img src="https://dulich.daknong.gov.vn/DataFiles/2024/01/Places/20240119-105446-qJfspXGW.webp" alt="Tà Đùng 3"></div>
+            <div class="gallery-item"><img src="https://dulich.daknong.gov.vn/DataFiles/2024/01/Places/20240119-105234-tgKJ1q4b.webp" alt="Tà Đùng 4"></div>
+            <div class="gallery-item"><img src="https://dulich.daknong.gov.vn/DataFiles/2024/01/Places/20240119-105447-wS87AFUk.webp" alt="Tà Đùng 5"></div>
+            <div class="gallery-item"><img src="https://dulich.daknong.gov.vn/DataFiles/2024/01/Places/20240119-105618-RZziKFAS.webp" alt="Tà Đùng 6"></div>
+            <div class="gallery-item"><img src="https://dulich.daknong.gov.vn/DataFiles/2024/01/Places/20240119-105226-CDf1MBhX.webp" alt="Tà Đùng 7"></div>
+            <div class="gallery-item"><img src="https://dulich.daknong.gov.vn/DataFiles/2024/01/Places/20240119-105232-FvyQl9eO.webp" alt="Tà Đùng 8"></div>
+            <div class="gallery-item"><img src="https://daklak24h.com.vn/images/news/2024/6/19/h%E1%BB%93%20T%C3%A0%20%C4%90%C3%B9ng.jpg" alt="Tà Đùng 9"></div>
+        </div>
+    </div>
 </section>
 
-<!-- LIGHTBOX -->
+<section id="travel" class="section dark">
+    <div class="container">
+        <div class="center">
+            <h2>Hành trình & Nhật ký du lịch</h2>
+            <p>Thông tin tham khảo để bạn có chuyến đi trọn vẹn nhất.</p>
+        </div>
+        <div class="info-grid">
+            <div class="info-card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Toạ độ</h3>
+                <p>Huyện Đắk Glong, tỉnh Đắk Nông<br>Cách TP. HCM khoảng 250km</p>
+            </div>
+            <div class="info-card">
+                <i class="far fa-calendar-alt"></i>
+                <h3>Mùa đẹp nhất</h3>
+                <p>Tháng 11 – Tháng 4 năm sau<br>Mùa khô, trời trong xanh, ít mưa</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-hiking"></i>
+                <h3>Trải nghiệm không thể bỏ qua</h3>
+                <p>Chèo SUP lúc bình minh · Trekking rừng nguyên sinh · Ngắm sao đêm</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-leaf"></i>
+                <h3>Mã số bền vững</h3>
+                <p>Hãy là du khách có trách nhiệm: mang theo rác về, không xả rác, giữ gìn hệ sinh thái.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="team" class="section">
+    <div class="container">
+        <div class="center">
+            <h2>Về dự án này</h2>
+            <p>Thực hiện bởi những tâm huyết trẻ với tình yêu dành cho di sản Việt.</p>
+        </div>
+        <div class="team-grid">
+            <div class="team-card">
+                <i class="fas fa-users"></i>
+                <h3>Lớp 12C10</h3>
+                <p>THPT Võ Trường Toản</p>
+            </div>
+            <div class="team-card">
+                <i class="fas fa-school"></i>
+                <h3>Ngôi trường</h3>
+                <p>THPT Võ Trường Toản – Tân Thới Hiệp, Quận 12</p>
+            </div>
+            <div class="team-card">
+                <i class="fas fa-map-pin"></i>
+                <h3>Địa chỉ</h3>
+                <p>482 Nguyễn Thị Đặng, P. Tân Thới Hiệp, TP.HCM</p>
+            </div>
+            <div class="team-card">
+                <i class="fas fa-mountain"></i>
+                <h3>Sứ mệnh</h3>
+                <p>Lan tỏa vẻ đẹp thiên nhiên hồ Tà Đùng thông qua thiết kế truyền cảm hứng.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 TÀ ĐÙNG | THE UNTAMED GEM</p>
+    <p>Dự án học tập của học sinh lớp 12C10 – THPT Võ Trường Toản, TP.HCM</p>
+</footer>
+
+<!-- Lightbox xem ảnh lớn khi click -->
 <div class="lightbox" id="lightbox">
-<img id="lightbox-img">
+    <span class="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="" alt="">
 </div>
 
 <script>
-// navbar scroll
-window.addEventListener("scroll",()=>{
-    document.getElementById("nav").classList.toggle("scrolled",window.scrollY>50)
-})
-
-// fade animation
-const fades=document.querySelectorAll(".fade")
-window.addEventListener("scroll",()=>{
-    fades.forEach(el=>{
-        const top=el.getBoundingClientRect().top
-        if(top<window.innerHeight-100){
-            el.classList.add("show")
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+        const navbar = document.getElementById('navbar');
+        if (window.scrollY > 20) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
         }
-    })
-})
+    });
 
-// lightbox
-const imgs=document.querySelectorAll(".gallery img")
-const lightbox=document.getElementById("lightbox")
-const lightboxImg=document.getElementById("lightbox-img")
-
-imgs.forEach(img=>{
-    img.onclick=()=>{
-        lightbox.style.display="flex"
-        lightboxImg.src=img.src
-    }
-})
-
-lightbox.onclick=()=>lightbox.style.display="none"
+    // Lightbox functionality - click vào ảnh gallery để xem lớn
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const galleryImages = document.querySelectorAll('.gallery-item img');
+    
+    galleryImages.forEach(img => {
+        img.addEventListener('click', function() {
+            lightbox.classList.add('active');
+            lightboxImg.src = this.src;
+        });
+    });
+    
+    lightbox.addEventListener('click', function(e) {
+        if (e.target === lightbox || e.target.classList.contains('lightbox-close')) {
+            lightbox.classList.remove('active');
+        }
+    });
 </script>
-
 </body>
 </html>
+một số hình ảnh đã hết hạn rồi, bây giờ tôi gửi link mới cho bạn cập nhật, bạn hãy sửa lại đoạn code này giúp tôi nhé 
+developer : Deepseek AI 
