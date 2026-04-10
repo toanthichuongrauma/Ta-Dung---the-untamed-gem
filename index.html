@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tà Đùng</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+    font-family:'Montserrat',sans-serif;
+    background:#FDF9F3;
+    color:#2C2A29;
+    scroll-behavior:smooth;
+}
+
+h1,h2,h3{font-family:'Cormorant Garamond',serif}
+
+.container{max-width:1200px;margin:auto;padding:0 20px}
+
+/* NAVBAR */
+.navbar{
+    position:fixed;
+    width:100%;
+    padding:20px;
+    z-index:1000;
+    transition:.3s;
+}
+.navbar.scrolled{
+    background:#fff;
+    box-shadow:0 2px 10px rgba(0,0,0,0.05);
+}
+.nav-links{
+    display:flex;
+    gap:20px;
+    justify-content:center;
+}
+.nav-links a{
+    text-decoration:none;
+    color:white;
+    font-weight:500;
+}
+.navbar.scrolled a{color:#000}
+
+/* HERO */
+.hero{
+    height:100vh;
+    background:
+    linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.3)),
+    url('https://vuonquocgiatadung.vn/images/hinhanh//034834-t----ng-2.jpg') center/cover;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+}
+.hero h1{font-size:5rem}
+
+/* SECTION */
+.section{padding:100px 0}
+
+/* ABOUT */
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+}
+.about img{
+    width:100%;
+    height:450px;
+    object-fit:cover;
+}
+
+/* EXPERIENCE */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+.card{
+    background:white;
+    padding:30px;
+    text-align:center;
+    transition:.3s;
+}
+.card:hover{
+    transform:translateY(-5px);
+}
+
+/* GALLERY */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+.gallery img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+    transition:.4s;
+    cursor:pointer;
+}
+.gallery img:hover{transform:scale(1.05)}
+
+/* LIGHTBOX */
+.lightbox{
+    position:fixed;
+    top:0;left:0;
+    width:100%;height:100%;
+    background:rgba(0,0,0,0.9);
+    display:none;
+    justify-content:center;
+    align-items:center;
+}
+.lightbox img{
+    max-width:90%;
+    max-height:90%;
+}
+
+/* INFO */
+.info{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+    text-align:center;
+}
+
+/* TEAM */
+.team{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+}
+
+/* ANIMATION */
+.fade{
+    opacity:0;
+    transform:translateY(20px);
+    transition:.6s;
+}
+.fade.show{
+    opacity:1;
+    transform:none;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+    .about{grid-template-columns:1fr}
+    .hero h1{font-size:3rem}
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<div class="navbar" id="nav">
+    <div class="nav-links">
+        <a href="#about">Giới thiệu</a>
+        <a href="#exp">Trải nghiệm</a>
+        <a href="#gallery">Gallery</a>
+    </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+    <div>
+        <h1>Tà Đùng</h1>
+        <p>The Untamed Gem</p>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section fade">
+<div class="container">
+<div class="about">
+<div>
+<h2>Vịnh Hạ Long Tây Nguyên</h2>
+<p>Tà Đùng với hàng chục đảo nổi tạo nên khung cảnh độc đáo.</p>
+</div>
+<img src="https://vuonquocgiatadung.vn/images/hinhanh//140716-td4.jpg" loading="lazy">
+</div>
+</div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="exp" class="section fade">
+<div class="container">
+<h2 style="text-align:center;margin-bottom:40px">Trải nghiệm</h2>
+
+<div class="cards">
+<div class="card">Du thuyền</div>
+<div class="card">Cắm trại</div>
+<div class="card">Săn mây</div>
+<div class="card">Văn hoá</div>
+</div>
+
+</div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="section fade">
+<div class="container">
+<h2 style="text-align:center;margin-bottom:40px">Gallery</h2>
+
+<div class="gallery">
+<img src="https://vuonquocgiatadung.vn/images/hinhanh//034802-t----ng-1.jpg" loading="lazy">
+<img src="https://vuonquocgiatadung.vn/images/hinhanh//135710-td3.jpg" loading="lazy">
+<img src="https://www.homepaylater.vn/static/1988d4efc5690b700b15a943344ef826/89314/2_ve_dep_hut_hon_cua_ho_ta_dung_vinh_ha_long_tren_can_fe3f50a286.webp" loading="lazy">
+<img src="https://www.homepaylater.vn/static/500a54d49f3950d78563c8b0d1318619/89314/4_ta_dung_con_co_ten_goi_la_song_ba_ngan_846e010fa8.webp" loading="lazy">
+<img src="https://vuonquocgiatadung.vn/images/hinhanh//034834-t----ng-2.jpg" loading="lazy">
+<img src="https://vuonquocgiatadung.vn/images/hinhanh//140716-td4.jpg" loading="lazy">
+</div>
+
+</div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+<img id="lightbox-img">
+</div>
+
+<script>
+// navbar scroll
+window.addEventListener("scroll",()=>{
+    document.getElementById("nav").classList.toggle("scrolled",window.scrollY>50)
+})
+
+// fade animation
+const fades=document.querySelectorAll(".fade")
+window.addEventListener("scroll",()=>{
+    fades.forEach(el=>{
+        const top=el.getBoundingClientRect().top
+        if(top<window.innerHeight-100){
+            el.classList.add("show")
+        }
+    })
+})
+
+// lightbox
+const imgs=document.querySelectorAll(".gallery img")
+const lightbox=document.getElementById("lightbox")
+const lightboxImg=document.getElementById("lightbox-img")
+
+imgs.forEach(img=>{
+    img.onclick=()=>{
+        lightbox.style.display="flex"
+        lightboxImg.src=img.src
+    }
+})
+
+lightbox.onclick=()=>lightbox.style.display="none"
+</script>
+
+</body>
+</html>
